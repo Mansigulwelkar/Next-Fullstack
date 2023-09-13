@@ -28,9 +28,8 @@ const TodoTable = () => {
         getTodo()
     }, [])
 
-    const [deleted, setDeleted] = useState([])
     const deleteTodo = async () => {
-        const res = await fetch("/api/todo", {
+        const res = await fetch("http://localhost:300/api/todo", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -38,7 +37,7 @@ const TodoTable = () => {
         })
         const { result } = await res.json()
         console.log(result);
-        setDeleted(result)
+        setAllTodos(result)
 
     }
     useEffect(() => {
