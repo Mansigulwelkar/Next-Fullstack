@@ -28,8 +28,8 @@ const TodoTable = () => {
         getTodo()
     }, [])
 
+    const [deleted, setDeleted] = useState([])
     const deleteTodo = async () => {
-        const [deleted, setDeleted] = useState([])
         const res = await fetch("/api/todo", {
             method: "DELETE",
             headers: {
